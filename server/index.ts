@@ -4,6 +4,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { connectToDatabase } from './utils/Database';
 import { addSwagger } from './utils/Swagger';
+import router from './routes';
 
 dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
@@ -11,6 +12,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
+
+// routes
+app.use('/', router);
 
 app.listen(process.env.PORT, () => {
   connectToDatabase().then(_res => {
