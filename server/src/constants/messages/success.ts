@@ -16,4 +16,16 @@ export default {
     data   : data,
   }),
 
+  USER_FOLLOWED: (name: string) => ({
+    status : HTTP_STATUS_CODE.OK,
+    type   : 'USER_FOLLOWED',
+    message: `You're now following ${name}`,
+  }),
+
+  USER_UNFOLLOWED: (name: string) => ({
+    status : HTTP_STATUS_CODE.OK,
+    type   : 'USER_FOLLOWED',
+    message: `You've unfollowed ${name}`,
+  }),
+
 };

@@ -1,17 +1,16 @@
 
-import { NextFunction, Request, Response, Router } from "express";
+import { NextFunction, Response, Router } from "express";
 import { HTTP_STATUS_CODE, MESSAGES } from "../../constants";
-import httpCodes from "../../constants/httpCodes";
 import { userController } from "../../controller";
+import { CustomRequest } from "../../interfaces/request";
 import { userValidator } from "../../validators";
-import { ErrorResponse } from "../../interfaces/response";
 
-const userRouter = Router()
+const userRouter = Router();
 
 userRouter.post(
   '/register', 
   userValidator.register,
-  async function(req: Request, res: Response, next: NextFunction){
+  async function(req: CustomRequest.UserRequest, res: Response, next: NextFunction){
     
     try{
       const result = await userController.register({
@@ -22,7 +21,7 @@ userRouter.post(
         password : req.body.password,
       });
 
-      res.status(httpCodes.OK).send(MESSAGES.SUCCESS.USER_REGISTRATION(result));
+      res.status(HTTP_STATUS_CODE.OK).send(MESSAGES.SUCCESS.USER_REGISTRATION(result));
   
     } catch(error){
       res.status(HTTP_STATUS_CODE.INTERNAL_SERVER_ERROR).send(error);
@@ -33,7 +32,7 @@ userRouter.post(
 userRouter.post(
   '/login', 
   userValidator.login,
-  async function(req: Request, res: Response, next: NextFunction){
+  async function(req: CustomRequest.UserRequest, res: Response, next: NextFunction){
     
     try{
       const result = await userController.login({
@@ -41,7 +40,7 @@ userRouter.post(
         password      : req.body.password,
       });
 
-      res.status(httpCodes.OK).send(MESSAGES.SUCCESS.USER_LOGGEDIN(result));
+      res.status(HTTP_STATUS_CODE.OK).send(MESSAGES.SUCCESS.USER_LOGGEDIN(result));
   
     } catch(error){
       res.status(HTTP_STATUS_CODE.INTERNAL_SERVER_ERROR).send(error);

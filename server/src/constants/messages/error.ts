@@ -9,6 +9,12 @@ export default {
     message: data,
   }),
 
+  USER_NOT_AUTHORISED: {
+    status : HTTP_CODES.BAD_REQUEST,
+    type   : 'USER_NOT_AUTHORISED',
+    message: `You're not authorised to access this page`,
+  },
+
   INTERNAL_SERVER_ERROR: (data: string) => ({
     status : HTTP_CODES.INTERNAL_SERVER_ERROR,
     type   : 'INTERNAL_SERVER_ERROR',
@@ -32,5 +38,11 @@ export default {
     type   : 'INVALID_CREDENTIALS',
     message: 'You have entered invalid credentials',
   },
+
+  INVALID_USER: {
+    status : HTTP_CODES.BAD_REQUEST,
+    type   : 'INVALID_USER',
+    message: 'The provided user does not exist',
+  }
   
 }

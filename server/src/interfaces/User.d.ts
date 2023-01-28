@@ -5,4 +5,5 @@ export default interface IUser {
   userName : String,
   email    : String,
   password : String,
+  status?  : String,
 };

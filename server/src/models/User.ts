@@ -1,5 +1,6 @@
 
 import { model, Schema } from "mongoose";
+import { CONSTANTS } from "../constants";
 import { IUser } from "../interfaces";
 
 const userSchema: Schema = new Schema<IUser>({
@@ -25,6 +26,12 @@ const userSchema: Schema = new Schema<IUser>({
     required: true,
     type: String,
   },
+  status: {
+    required: false,
+    type: String,
+    default: CONSTANTS.STATUS.ACTIVE,
+    enum: Object.values(CONSTANTS.STATUS)
+  }
 },
 {
   versionKey: false,

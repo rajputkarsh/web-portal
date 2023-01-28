@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { CONSTANTS } from "../../constants";
 import { IUser } from "../../interfaces";
 import { UserModel } from "../../models";
 
@@ -9,6 +10,7 @@ class UserDao {
         {
           $match: {
             ...query,
+            status: CONSTANTS.STATUS.ACTIVE
           },
         },
         {
