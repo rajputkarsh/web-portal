@@ -62,7 +62,7 @@ class BaseValidator {
                 status: MESSAGES.ERROR.INTERNAL_SERVER_ERROR(error as string),
                 message: error
             })
-            return false
+            return false;
         }
     }
     
