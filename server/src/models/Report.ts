@@ -2,6 +2,7 @@
 import { ObjectId } from "mongodb";
 import { model, Schema } from "mongoose";
 import { PostModel, UserModel } from ".";
+import { CONSTANTS } from "../constants";
 import { IReport } from "../interfaces";
 
 const reportSchema: Schema = new Schema<IReport>({
@@ -24,6 +25,12 @@ const reportSchema: Schema = new Schema<IReport>({
     type: ObjectId,
     ref: UserModel
   },
+  status: {
+    required: false,
+    type: String,
+    default: CONSTANTS.STATUS.ACTIVE, 
+    enum: Object.values(CONSTANTS.STATUS)
+  }
 },
 {
   versionKey: false,

@@ -9,7 +9,12 @@ const STATUS = {
   DELETED : 'DELETED',
 };
 
+const DEFAULT_PAGE_NUMBER = 1;
+const DEFAULT_PAGE_SIZE   = 10;
+
 export default {
   USER_TYPE,
-  STATUS
+  STATUS,
+  DEFAULT_PAGE_NUMBER,
+  DEFAULT_PAGE_SIZE,
 }

@@ -2,12 +2,13 @@
 import { ObjectId } from "mongodb";
 import { model, Schema } from "mongoose";
 import { UserModel } from ".";
+import { CONSTANTS } from "../constants";
 import { ISubGreddiit } from "../interfaces";
 
 const subGreddiitSchema: Schema = new Schema<ISubGreddiit>({
   name: {
     required: true,
-    type: String
+    type: String,
   },
   tags: {
     required: true,
@@ -15,7 +16,7 @@ const subGreddiitSchema: Schema = new Schema<ISubGreddiit>({
   },
   description: {
     required: true,
-    type: String
+    type: String,
   },
   bannedWords: {
     required: true,
@@ -23,8 +24,15 @@ const subGreddiitSchema: Schema = new Schema<ISubGreddiit>({
   },
   moderator: {
     required: true,
-    type: String
+    type: ObjectId,
+    ref: UserModel,
   },
+  status: {
+    required: false,
+    type: String,
+    default: CONSTANTS.STATUS.ACTIVE, 
+    enum: Object.values(CONSTANTS.STATUS)
+  }
 },
 {
   versionKey: false,

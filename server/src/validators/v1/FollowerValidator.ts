@@ -1,7 +1,6 @@
 
 import { Request, Response, NextFunction } from "express";
 import Joi from "joi";
-import { REGEX } from "../../constants";
 import BaseValidator from "./BaseValidator";
 
 class FollowerValidator extends BaseValidator{
@@ -12,7 +11,7 @@ class FollowerValidator extends BaseValidator{
       user: Joi.string().hex().length(24).required(),
     });
     
-    this.validateBody(validationSchema, req, res, next)
+    this.validateBody(validationSchema, req, res, next);
   }
 
   unfollow = async (req: Request, res: Response, next: NextFunction) => {
@@ -21,7 +20,7 @@ class FollowerValidator extends BaseValidator{
       user: Joi.string().hex().length(24).required(),
     });
     
-    this.validateBody(validationSchema, req, res, next)
+    this.validateBody(validationSchema, req, res, next);
   }
 
 }

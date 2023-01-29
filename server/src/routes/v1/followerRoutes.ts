@@ -1,5 +1,5 @@
-import { NextFunction, Request, Response, Router } from "express";
-import { HTTP_STATUS_CODE, MESSAGES } from "../../constants";
+import { NextFunction, Response, Router } from "express";
+import { HTTP_STATUS_CODE } from "../../constants";
 import { followerController } from "../../controller";
 import { CustomRequest } from "../../interfaces/request";
 import { userMiddleware } from "../../middlewares";

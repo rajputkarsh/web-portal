@@ -2,6 +2,8 @@ import { HTTP_STATUS_CODE } from "..";
 
 export default {
   
+
+  // user related
   USER_REGISTRATION: (data: Object) => ({
     status : HTTP_STATUS_CODE.OK,
     type   : 'USER_REGISTRATION',
@@ -26,6 +28,15 @@ export default {
     status : HTTP_STATUS_CODE.OK,
     type   : 'USER_FOLLOWED',
     message: `You've unfollowed ${name}`,
+  }),
+
+
+  // sub-greddiit related
+  SUB_GREDDIIT_LIST: (data: Object) =>  ({
+    status : HTTP_STATUS_CODE.OK,
+    type   : 'SUB_GREDDIIT_LIST',
+    message: 'Sub Greddiit List Fetched Successfully',
+    data   : data,
   }),
 
 };

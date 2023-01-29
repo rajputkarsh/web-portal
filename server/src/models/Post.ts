@@ -2,6 +2,7 @@
 import { ObjectId } from "mongodb";
 import { model, Schema } from "mongoose";
 import { UserModel } from ".";
+import { CONSTANTS } from "../constants";
 import { IPost } from "../interfaces";
 
 const postSchema: Schema = new Schema<IPost>({
@@ -31,6 +32,12 @@ const postSchema: Schema = new Schema<IPost>({
     required: true,
     type: Number,
   },
+  status: {
+    required: false,
+    type: String,
+    default: CONSTANTS.STATUS.ACTIVE, 
+    enum: Object.values(CONSTANTS.STATUS)
+  }
 },
 {
   versionKey: false,

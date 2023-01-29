@@ -6,5 +6,6 @@ export default interface ISubGreddiit{
   tags       : Array<String>,
   description: String,
   bannedWords: Array<String>,
-  moderator : ObjectId,
+  moderator  : ObjectId,
+  status     : String,
 };

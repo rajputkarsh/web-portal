@@ -16,7 +16,7 @@ class UserValidator extends BaseValidator{
       password : Joi.string().regex(REGEX.PASSWORD).required(),
     });
     
-    this.validateBody(validationSchema, req, res, next)
+    this.validateBody(validationSchema, req, res, next);
   }
 
   login = async (req: Request, res: Response, next: NextFunction) => {
@@ -26,7 +26,7 @@ class UserValidator extends BaseValidator{
       password      : Joi.string().regex(REGEX.PASSWORD).required(),
     });
     
-    this.validateBody(validationSchema, req, res, next)
+    this.validateBody(validationSchema, req, res, next);
   }  
 
 }

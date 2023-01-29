@@ -7,4 +7,5 @@ export default interface IPost{
   subGreddiit: ObjectId,
   upvotes: Number,
   downvotes: Number,
+  status?: String
 };
