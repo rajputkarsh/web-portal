@@ -6,5 +6,5 @@ export default interface IReport {
   concern     : String,
   reportedBy  : ObjectId,
   reportedUser: ObjectId,
-  status      : String,
+  status?     : String,
 };

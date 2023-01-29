@@ -1,7 +1,7 @@
 import { ObjectId } from "mongodb";
 
 export default interface IFollower{
-  userId: ObjectId,
+  userId  : ObjectId,
   follower: ObjectId,
-  status?: string
+  status? : string
 };

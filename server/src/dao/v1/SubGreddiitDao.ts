@@ -1,3 +1,6 @@
+import mongoose from "mongoose";
+import { CONSTANTS } from "../../constants";
+import { ISubGreddiit } from "../../interfaces";
 import { SubGreddiitModel } from "../../models";
 
 class SubGreddiitDao{
@@ -38,6 +41,29 @@ class SubGreddiitDao{
     }
   }
 
+  async add(data: ISubGreddiit){
+    try{
+      return await SubGreddiitModel.create(data);
+    } catch(error){
+      throw error
+    }
+  }
+
+  async update(id: string, data: Partial<ISubGreddiit>){
+    try{
+      return await SubGreddiitModel.updateMany({_id: new mongoose.Schema.Types.ObjectId(id)}, data);
+    } catch(error){
+      throw error
+    }
+  }
+
+  async delete(id: string){
+    try{
+      return await SubGreddiitModel.updateMany({_id: new mongoose.Schema.Types.ObjectId(id)}, {status: CONSTANTS.STATUS.DELETED});
+    } catch(error){
+      throw error
+    }
+  }
 
 }
 

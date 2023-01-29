@@ -39,4 +39,24 @@ export default {
     data   : data,
   }),
 
+  SUB_GREDDIIT_ADDED: (data: Object) =>  ({
+    status : HTTP_STATUS_CODE.OK,
+    type   : 'SUB_GREDDIIT_ADDED',
+    message: 'Sub Greddiit Added Successfully',
+    data   : data,
+  }),
+
+  SUB_GREDDIIT_UPDATED: (data: Object) =>  ({
+    status : HTTP_STATUS_CODE.OK,
+    type   : 'SUB_GREDDIIT_UPDATED',
+    message: 'Sub Greddiit Updated Successfully',
+    data   : data,
+  }),
+
+  SUB_GREDDIIT_DELETED: {
+    status : HTTP_STATUS_CODE.OK,
+    type   : 'SUB_GREDDIIT_DELETED',
+    message: 'Sub Greddiit Deleted Successfully',
+  },
+
 };

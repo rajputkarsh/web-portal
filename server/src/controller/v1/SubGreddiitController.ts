@@ -1,5 +1,5 @@
 import { subGreddiitDao } from "../../dao";
-import { ICustomObject } from "../../interfaces";
+import { ICustomObject, ISubGreddiit } from "../../interfaces";
 
 class SubGreddiitController{
   async list(query: ICustomObject, page: number, limit: number){
@@ -20,6 +20,31 @@ class SubGreddiitController{
       throw error;
     }
   }
+
+  async add(data: ISubGreddiit){
+    try{
+      return await subGreddiitDao.add(data);
+    } catch(error){
+      throw error;
+    }
+  }
+
+  async update(id: string, data: Partial<ISubGreddiit>){
+    try{
+      return await subGreddiitDao.update(id, data);
+    } catch(error){
+      throw error;
+    }
+  }
+
+  async delete(id: string){
+    try{
+      return await subGreddiitDao.delete(id);
+    } catch(error){
+      throw error;
+    }
+  }
+
 }
 
 export default new SubGreddiitController();
